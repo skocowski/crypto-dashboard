@@ -85,7 +85,7 @@ const { filteredSummary} = useAssets()
 
           
       
-            {filteredSummary.walletsSummary[wallet.walletAddress]?.glpValueUSD  > 0 && (
+            {filteredSummary.walletsSummary[wallet.walletAddress]?.glpValueUSD > 0 && (
     
 
 

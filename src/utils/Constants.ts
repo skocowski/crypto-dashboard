@@ -1,7 +1,7 @@
 import { Network } from "alchemy-sdk";
 import { AssetsContextType } from "./interfaces";
 
-export const BASE_URL = "http://localhost:3000";
+export const BASE_URL = "https://crypto-dashboard-seven-navy.vercel.app";
 
 export const alchemyNetworks = [
   Network.ETH_MAINNET,
