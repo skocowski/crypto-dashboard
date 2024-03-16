@@ -18,7 +18,10 @@ export async function GET(request: Request) {
     });
   } catch (error) {
     console.error("Error fetching token prices:", error);
-    return null;
+     return new Response("Internal Server Error", {
+       status: 500,
+       headers: { "Content-Type": "text/plain" },
+     });
   }
 }
 
