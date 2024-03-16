@@ -1,4 +1,4 @@
-import { fetchNativeTokens, fetchTokens } from '@/utils/Functions'
+import { fetchGlp, fetchNativeTokens, fetchTokens } from '@/utils/Functions'
 import { Asset, AssetMap, WalletMap } from '@/utils/interfaces'
 import React from 'react'
 import { useAssets } from '../AssetsContext'
@@ -28,9 +28,11 @@ const ReloadWallets = () => {
 
             const newTokens = await fetchTokens(wallet.walletAddress);
             const newNativeTokens = await fetchNativeTokens(wallet.walletAddress)
+            const newGlp = await fetchGlp(wallet.walletAddress)
             const newAsset: Asset = {
                 tokens: newTokens,
-                native: newNativeTokens
+                native: newNativeTokens,
+                glp: newGlp
             }
             // Add newAsset to newAssets
             newAssets[wallet.walletAddress] = newAsset;
