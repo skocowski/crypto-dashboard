@@ -1,20 +1,17 @@
 import puppeteer from "puppeteer";
 
 export async function GET(request: Request) {
-    try {
-    
+  try {
     const browser = await puppeteer.launch();
-        const page = await browser.newPage();
-       
-        await page.goto("https://app.gmx.io/#/earn");
-      
+    const page = await browser.newPage();
+
+    await page.goto("https://app.gmx.io/#/earn");
+
     await page.waitForSelector(
-     "#root > div > div.App > div > div > div.StakeV2-content > div > div.App-card.App-card-space-between > div:nth-child(1) > div.App-card-content > div:nth-child(5) > div:nth-child(2) > span > span"
+      "#root > div > div.App > div > div > div.StakeV2-content > div > div.App-card.App-card-space-between > div:nth-child(1) > div.App-card-content > div:nth-child(5) > div:nth-child(2) > span > span"
     );
-        
 
     await new Promise((resolve) => setTimeout(resolve, 2000));
-  
 
     const grabAPR = await page.evaluate(() => {
       const aprTag = document.querySelector(
@@ -34,5 +31,3 @@ export async function GET(request: Request) {
     return new Response("Error occurred", { status: 500 });
   }
 }
-
-
