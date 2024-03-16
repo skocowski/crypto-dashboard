@@ -238,6 +238,7 @@ const calculateSummary = (assets: AssetMap) => {
                 chainsValueUSD[token.chain] += token.usdValue;
             }
         });
+
         asset.native.forEach(nativeToken => {
             nativeTokensValueUSD += nativeToken.usdValue;
             const walletAddress = nativeToken.walletAddress;
@@ -255,11 +256,23 @@ const calculateSummary = (assets: AssetMap) => {
             }
         });
         
-        if (asset.glp) {
-            glpValueUSD += asset.glp.balance
-            walletsSummary[asset.glp.walletAddress].glpValueUSD = asset.glp.usdValue
-            chainsValueUSD[asset.glp.chain] += asset.glp.usdValue
+
+        glpValueUSD += asset.glp.balance
+        // Calculate wallet summary for GLP
+        if (walletsSummary[asset.glp.walletAddress] === undefined) {
+            walletsSummary[asset.glp.walletAddress] = { tokensValueUSD: 0, nativeTokensValueUSD: 0, glpValueUSD: asset.glp.usdValue };
+        } else {
+            walletsSummary[asset.glp.walletAddress].glpValueUSD += asset.glp.usdValue;
         }
+        // Calculate chain summary for GLP
+        if (chainsValueUSD[asset.glp.chain] === undefined) {
+            chainsValueUSD[asset.glp.chain] = asset.glp.usdValue;
+        } else {
+            chainsValueUSD[asset.glp.chain] += asset.glp.usdValue;
+        }
+        
+
+        
     });
 
     // Set the updated summary object

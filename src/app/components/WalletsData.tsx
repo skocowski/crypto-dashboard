@@ -83,12 +83,18 @@ const { filteredSummary} = useAssets()
                 </div>
             )} 
 
-            {filteredSummary.walletsSummary[wallet.walletAddress]?.glpValueUsd > 0 && (
+          
+      
+            {filteredSummary.walletsSummary[wallet.walletAddress] && filteredSummary.walletsSummary[wallet.walletAddress]?.glpValueUsd &&  filteredSummary.walletsSummary[wallet.walletAddress]?.glpValueUsd > 0 && (
+    
+
+
+     
                 <div className="text-sm text-medium text-gray-500 truncate dark:text-gray-400 pb-1">
                     <div className="flex justify-between">
                         <div>Native</div>
                         <div>
-                            ${millify(filteredSummary.walletsSummary[wallet.walletAddress].glpValueUsd)}
+                            ${millify(filteredSummary.walletsSummary[wallet.walletAddress]?.glpValueUsd)}
                         </div>
                     </div>
                 </div>

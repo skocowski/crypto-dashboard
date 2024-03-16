@@ -8,7 +8,7 @@ export interface AssetMap {
 export interface Asset {
   tokens: Token[]
   native: NativeToken[]
-  glp?: GlpToken
+  glp: GlpToken
 }
 
 export interface WalletMap {
@@ -110,7 +110,7 @@ export interface Summary {
     [walletAddress: string]: {
       tokensValueUSD: number;
       nativeTokensValueUSD: number;
-      glpValueUsd?: number;
+      glpValueUSD: number;
     };
   };
 }
