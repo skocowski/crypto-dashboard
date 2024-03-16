@@ -175,7 +175,14 @@ export const AssetsProvider = ({ children }: Props) => {
         Object.entries(assets).forEach(([walletAddress, asset]) => {
             const filteredTokens = asset.tokens.filter(token => checkedChains.includes(token.chain));
             const filteredNativeTokens = asset.native.filter(nativeToken => checkedChains.includes(nativeToken.chain));
-            const filteredGlp = asset.glp?.chain && checkedChains.includes(asset.glp.chain) ? asset.glp : undefined;
+            const filteredGlp = asset.glp.chain && checkedChains.includes(asset.glp.chain) ? asset.glp :
+                {
+                walletAddress: asset.glp.walletAddress,
+balance: 0,
+rewards: 0,
+chain: asset.glp.chain,
+usdValue: 0
+};
 
 
 
