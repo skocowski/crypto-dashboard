@@ -1,5 +1,6 @@
 import axios from "axios";
 import { GlpToken, Token } from "./interfaces";
+import { BASE_URL } from "./Constants";
 
 export function isValidEthereumAddress(address: string) {
   // Regular expression pattern for Ethereum addresses
@@ -23,7 +24,7 @@ export function checkCount(array: any) {
 export async function fetchTokens(walletAddress: string): Promise<Token[]> {
   try {
     const response = await axios.get<Token[]>(
-      `/api/tokens?address=${walletAddress}`
+      `${BASE_URL}/api/tokens?address=${walletAddress}`
     );
     return response.data;
   } catch (error) {
@@ -35,7 +36,7 @@ export async function fetchTokens(walletAddress: string): Promise<Token[]> {
 export async function fetchNativeTokens(walletAddress: string): Promise<Token[]> {
   try {
     const response = await axios.get<Token[]>(
-      `/api/native?address=${walletAddress}`
+      `${BASE_URL}/api/native?address=${walletAddress}`
     );
     return response.data;
   } catch (error) {
@@ -47,7 +48,7 @@ export async function fetchNativeTokens(walletAddress: string): Promise<Token[]>
 export async function fetchGlp(walletAddress: string): Promise<GlpToken> {
   try {
     const response = await axios.get<GlpToken>(
-      `/api/glp?address=${walletAddress}`
+      `${BASE_URL}/api/glp?address=${walletAddress}`
     );
     return response.data; // Return a single object
   } catch (error) {

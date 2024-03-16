@@ -46,7 +46,7 @@ export const AssetsProvider = ({ children }: Props) => {
     }, [filteredAssets])
 
     useEffect(() => {
-        setFilteredAssets(filterAssets(assets, wallets, networks, coins)) 
+        setFilteredAssets(filterAssets(assets, wallets, networks, coins))
     }, [networks, wallets, coins])
 
 
@@ -132,10 +132,10 @@ export const AssetsProvider = ({ children }: Props) => {
                     mergedTokens[symbol].usdValue += usdValue;
                 }
             });
-          
+
 
         })
-              return mergedTokens
+        return mergedTokens
     }
 
 
@@ -146,7 +146,7 @@ export const AssetsProvider = ({ children }: Props) => {
         const filteredByCoin = filterAssetsByCoin(filteredByChain, coins)
         return filteredByCoin;
     }
-    
+
     function filterAssetsByWallet(assets: AssetMap, wallets: WalletMap) {
         const checkedWalletAddresses = Object.keys(wallets).filter(walletAddress => wallets[walletAddress].isChecked);
 
@@ -177,12 +177,12 @@ export const AssetsProvider = ({ children }: Props) => {
             const filteredNativeTokens = asset.native.filter(nativeToken => checkedChains.includes(nativeToken.chain));
             const filteredGlp = asset.glp.chain && checkedChains.includes(asset.glp.chain) ? asset.glp :
                 {
-                walletAddress: asset.glp.walletAddress,
-balance: 0,
-rewards: 0,
-chain: asset.glp.chain,
-usdValue: 0
-};
+                    walletAddress: asset.glp.walletAddress,
+                    balance: 0,
+                    rewards: 0,
+                    chain: asset.glp.chain,
+                    usdValue: 0
+                };
 
 
 
@@ -262,7 +262,7 @@ const calculateSummary = (assets: AssetMap) => {
                 chainsValueUSD[nativeToken.chain] += nativeToken.usdValue;
             }
         });
-        
+
 
         glpValueUSD += asset.glp.balance
         // Calculate wallet summary for GLP
@@ -277,9 +277,9 @@ const calculateSummary = (assets: AssetMap) => {
         } else {
             chainsValueUSD[asset.glp.chain] += asset.glp.usdValue;
         }
-        
 
-        
+
+
     });
 
     // Set the updated summary object
