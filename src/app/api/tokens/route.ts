@@ -1,4 +1,4 @@
-import { alchemyNetworks, networksList } from "@/utils/Constants";
+import { BASE_URL, alchemyNetworks, networksList } from "@/utils/Constants";
 import { Token, TokenPriceInt } from "@/utils/interfaces";
 import {
   Alchemy,
@@ -109,7 +109,7 @@ export async function GET(request: Request) {
   }
 }
 
-export async function getTokenPrices() {
+ async function getTokenPrices() {
   try {
        const response = await fetch(`${BASE_URL}/api/prices`);
     const data = await response.json();
