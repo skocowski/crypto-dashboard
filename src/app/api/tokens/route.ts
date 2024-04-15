@@ -111,7 +111,7 @@ export async function GET(request: Request) {
 
  async function getTokenPrices() {
   try {
-       const response = await fetch(`${BASE_URL}/api/prices`);
+       const response = await fetch(`http://localhost:3000/api/prices`);
     const data = await response.json();
 
     const prices: Record<string, number> = data.reduce(

@@ -309,6 +309,6 @@ function getCoinsData(coins: CoinMap, summary: Summary) {
     if (tempArray.length < 10) {
         return tempArray;
     } else {
-        return tempArray.sort((a, b) => b.value - a.value).slice(0, 10);
+        return tempArray.sort((a, b) => b.value - a.value).slice(0, 5);
     }
 }

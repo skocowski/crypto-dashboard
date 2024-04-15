@@ -24,7 +24,7 @@ export function checkCount(array: any) {
 export async function fetchTokens(walletAddress: string): Promise<Token[]> {
   try {
     const response = await axios.get<Token[]>(
-      `${BASE_URL}/api/tokens?address=${walletAddress}`
+      `/api/tokens?address=${walletAddress}`
     );
     return response.data;
   } catch (error) {
@@ -36,7 +36,7 @@ export async function fetchTokens(walletAddress: string): Promise<Token[]> {
 export async function fetchNativeTokens(walletAddress: string): Promise<Token[]> {
   try {
     const response = await axios.get<Token[]>(
-      `${BASE_URL}/api/native?address=${walletAddress}`
+      `/api/native?address=${walletAddress}`
     );
     return response.data;
   } catch (error) {
@@ -48,7 +48,7 @@ export async function fetchNativeTokens(walletAddress: string): Promise<Token[]>
 export async function fetchGlp(walletAddress: string): Promise<GlpToken> {
   try {
     const response = await axios.get<GlpToken>(
-      `${BASE_URL}/api/glp?address=${walletAddress}`
+      `/api/glp?address=${walletAddress}`
     );
     return response.data; // Return a single object
   } catch (error) {

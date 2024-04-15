@@ -43,6 +43,7 @@ export const AssetsProvider = ({ children }: Props) => {
 
     useEffect(() => {
         setFilteredSummary(calculateSummary(filteredAssets))
+        setCoins(generateCoins(filteredAssets))
     }, [filteredAssets])
 
     useEffect(() => {

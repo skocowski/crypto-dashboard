@@ -92,7 +92,7 @@ const { filteredSummary} = useAssets()
      
                 <div className="text-sm text-medium text-gray-500 truncate dark:text-gray-400 pb-1">
                     <div className="flex justify-between">
-                        <div>Native</div>
+                        <div>Glp</div>
                         <div>
                             ${millify(filteredSummary.walletsSummary[wallet.walletAddress]?.glpValueUSD)}
                         </div>
